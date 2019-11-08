@@ -131,12 +131,14 @@ public class Panel extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuSesionActionPerformed
 
     private void mnuClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuClientesActionPerformed
-     
+       
         
     }//GEN-LAST:event_mnuClientesActionPerformed
 
     private void mnuNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuNuevoActionPerformed
-   
+       ClientesAdmin clientesadmin = new ClientesAdmin();
+       clientesadmin.setVisible(true);
+       this.setVisible(false);
      
     }//GEN-LAST:event_mnuNuevoActionPerformed
 

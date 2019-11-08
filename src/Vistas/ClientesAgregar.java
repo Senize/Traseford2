@@ -5,12 +5,17 @@
  */
 package Vistas;
 
+import Clases.Cliente;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 
 public class ClientesAgregar extends javax.swing.JInternalFrame {
 
-   
+   ArrayList<Cliente> lista = new ArrayList<Cliente>();
     public ClientesAgregar() {
         initComponents();
+        setTitle("Agregar Cliente");
     }
 
     ClientesAgregar(Panel aThis, boolean rootPaneCheckingEnabled) {
@@ -29,7 +34,7 @@ public class ClientesAgregar extends javax.swing.JInternalFrame {
         lblRSocial = new javax.swing.JLabel();
         lblDireccion = new javax.swing.JLabel();
         lblCiudad = new javax.swing.JLabel();
-        lblColumna = new javax.swing.JLabel();
+        lblComuna = new javax.swing.JLabel();
         txtRUT = new javax.swing.JTextField();
         txtRSocial = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
@@ -53,7 +58,7 @@ public class ClientesAgregar extends javax.swing.JInternalFrame {
 
         lblCiudad.setText("Ciudad:");
 
-        lblColumna.setText("Columna:");
+        lblComuna.setText("Comuna:");
 
         btnIngresar.setText("Ingresar");
         btnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -88,7 +93,7 @@ public class ClientesAgregar extends javax.swing.JInternalFrame {
                                     .addComponent(txtDireccion)
                                     .addComponent(txtCiudad, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblColumna, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblComuna, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -99,7 +104,7 @@ public class ClientesAgregar extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(148, 148, 148)
                         .addComponent(lblNCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +129,7 @@ public class ClientesAgregar extends javax.swing.JInternalFrame {
                     .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblColumna, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblComuna, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtColumna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -137,18 +142,55 @@ public class ClientesAgregar extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresarMouseClicked
-       String RUT, RazonSocial;
+     
+        Cliente cliente = new Cliente(txtRUT.getText(),txtRSocial.getText(),txtDireccion.getText(),txtCiudad.getText(),txtComuna.getText());
+        lista.add(cliente);    
+      
+        mostrar();
        
     }//GEN-LAST:event_btnIngresarMouseClicked
 
-
+    
+    public void mostrar(){
+    
+    String matris[][]=new String[lista.size()][5];
+    
+    for (int i = 0; i < lista.size(); i++) {
+        
+        matris [i][0]=lista.get(i).getRUT();
+        matris [i][1]=lista.get(i).getRazonSocial();
+        matris [i][2]=lista.get(i).getDireccion();
+        matris [i][3]=lista.get(i).getCiudad();
+        matris [i][4]=lista.get(i).getComuna();   
+    
+        
+        
+    }    
+    
+    
+    tbTabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "RUT", "Razón Social", "Dirección", "Ciudad", "Comuna"
+            }
+        ));
+    
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JColorChooser jColorChooser2;
     private javax.swing.JLabel lblCiudad;
-    private javax.swing.JLabel lblColumna;
+    private javax.swing.JLabel lblComuna;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblNCliente;
     private javax.swing.JLabel lblRSocial;
@@ -159,4 +201,24 @@ public class ClientesAgregar extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtRSocial;
     private javax.swing.JTextField txtRUT;
     // End of variables declaration//GEN-END:variables
+
+    private static class txtComuna {
+
+        private static String getText() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        public txtComuna() {
+        }
+    }
+
+    private static class tbTabla {
+
+        private static void setModel(DefaultTableModel defaultTableModel) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        public tbTabla() {
+        }
+    }
 }

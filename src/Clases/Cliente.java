@@ -12,6 +12,7 @@ public class Cliente {
     public Cliente(String RUT, String RazonSocial) {
         this.RUT = RUT;
         this.RazonSocial = RazonSocial;
+        
     }
 
     public Cliente(String text, String text0, String text1, String text2, String text3) {
@@ -32,6 +33,18 @@ public class Cliente {
 
     public void setRazonSocial(String RazonSocial) {
         this.RazonSocial = RazonSocial;
+    }
+
+    public String getDireccion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getCiudad() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getComuna() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
     
